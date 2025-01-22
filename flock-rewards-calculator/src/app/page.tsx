@@ -459,7 +459,7 @@ export default function Home() {
               />
             </label>
             <label className="block">
-              α<sub>t</sub> (Stake's Influence on Stake for Training Nodes)
+              α<sub>t</sub> (Stake's Influence on Rewards for Training Nodes)
               <input
                 type="number"
                 step="0.1"
@@ -469,7 +469,7 @@ export default function Home() {
               />
             </label>
             <label className="block">
-              α<sub>V</sub> (Stake's Influence on Stake for Validators)
+              α<sub>V</sub> (Stake's Influence on Rewards for Validators)
               <input
                 type="number"
                 step="0.1"

@@ -155,13 +155,13 @@ export default function Home() {
   // Validator B
   const [valBStake, setValBStake] = useState<number>(6000);
   const [valBDelegators, setValBDelegators] = useState<number>(0);
-  const [valBScore, setValBScore] = useState<number>(0.527232);
+  const [valBScore, setValBScore] = useState<number>(0.280226);
   const [valBSigma, setValBSigma] = useState<number>(0.4);
 
   // Validator C
   const [valCStake, setValCStake] = useState<number>(3000);
   const [valCDelegators, setValCDelegators] = useState<number>(0);
-  const [valCScore, setValCScore] = useState<number>(0.0);
+  const [valCScore, setValCScore] = useState<number>(0.247006);
   const [valCSigma, setValCSigma] = useState<number>(0.4);
 
   //
@@ -449,7 +449,7 @@ export default function Home() {
               />
             </label>
             <label className="block">
-              Gamma (γ)
+              γ (Reward Split Ratio beween Training Nodes & Validators) 
               <input
                 type="number"
                 step="0.01"
@@ -459,7 +459,7 @@ export default function Home() {
               />
             </label>
             <label className="block">
-              α<sub>t</sub> (Node Influence)
+              α<sub>t</sub> (Stake's Influence on Stake for Training Nodes)
               <input
                 type="number"
                 step="0.1"
@@ -469,7 +469,7 @@ export default function Home() {
               />
             </label>
             <label className="block">
-              α<sub>V</sub> (Validator Influence)
+              α<sub>V</sub> (Stake's Influence on Stake for Validators)
               <input
                 type="number"
                 step="0.1"
@@ -481,7 +481,7 @@ export default function Home() {
           </div>
 
           {/* NODES */}
-          <h2 className="font-semibold mb-2">Training Nodes (3)</h2>
+          <h2 className="font-semibold mb-2">Training Nodes</h2>
           <p className="text-sm text-gray-600 mb-2">
             Node Score Sum:{" "}
             <span
@@ -510,7 +510,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                Delegators (t<sub>dA</sub>)
+                Delegators' Stake (t<sub>dA</sub>)
                 <input
                   type="number"
                   className="appearance-none border px-2 py-1 w-full rounded mt-1"
@@ -533,7 +533,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                σ<sub>A</sub>
+                σ<sub>A</sub> (Reward Ratio = 1 - σ)
                 <input
                   type="number"
                   step="0.1"
@@ -563,7 +563,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                Delegators (t<sub>dB</sub>)
+                Delegators' Stake (t<sub>dB</sub>)
                 <input
                   type="number"
                   className="appearance-none border px-2 py-1 w-full rounded mt-1"
@@ -586,7 +586,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                σ<sub>B</sub>
+                σ<sub>B</sub> (Reward Ratio = 1 - σ)
                 <input
                   type="number"
                   step="0.1"
@@ -616,7 +616,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                Delegators (t<sub>dC</sub>)
+                Delegators' Stake (t<sub>dC</sub>)
                 <input
                   type="number"
                   className="appearance-none border px-2 py-1 w-full rounded mt-1"
@@ -639,7 +639,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                σ<sub>C</sub>
+                σ<sub>C</sub> (Reward Ratio = 1 - σ)
                 <input
                   type="number"
                   step="0.1"
@@ -654,7 +654,7 @@ export default function Home() {
           </div>
 
           {/* VALIDATORS */}
-          <h2 className="font-semibold mb-2 mt-4">Validators (3)</h2>
+          <h2 className="font-semibold mb-2 mt-4">Validators</h2>
           <p className="text-sm text-gray-600 mb-2">
             Validator Score Sum:{" "}
             <span
@@ -683,7 +683,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                Delegators (S<sub>dA</sub>)
+                Delegators' Stake (S<sub>dA</sub>)
                 <input
                   type="number"
                   className="appearance-none border px-2 py-1 w-full rounded mt-1"
@@ -706,7 +706,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                σ<sub>ValA</sub>
+                σ<sub>ValA</sub> (Reward Ratio = 1 - σ)
                 <input
                   type="number"
                   step="0.1"
@@ -736,7 +736,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                Delegators (S<sub>dB</sub>)
+                Delegators' Stake (S<sub>dB</sub>)
                 <input
                   type="number"
                   className="appearance-none border px-2 py-1 w-full rounded mt-1"
@@ -759,7 +759,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                σ<sub>ValB</sub>
+                σ<sub>ValB</sub> (Reward Ratio = 1 - σ)
                 <input
                   type="number"
                   step="0.1"
@@ -789,7 +789,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                Delegators (S<sub>dC</sub>)
+                Delegators' Stake (S<sub>dC</sub>)
                 <input
                   type="number"
                   className="appearance-none border px-2 py-1 w-full rounded mt-1"
@@ -812,7 +812,7 @@ export default function Home() {
                 />
               </label>
               <label className="block">
-                σ<sub>ValC</sub>
+                σ<sub>ValC</sub> (Reward Ratio = 1 - σ)
                 <input
                   type="number"
                   step="0.1"
@@ -851,6 +851,7 @@ export default function Home() {
               <h3 className="font-medium">Calculation Steps (Step 1)</h3>
               <p>Node Direct Sum: {step1Calc.nodeDirectSum}</p>
               <p>Validator Direct Sum: {step1Calc.validatorDirectSum}</p>
+              <p>Note: Direct Sum above means delegated stake is not counted here</p>
               <p>Fraction for Nodes: {step1Calc.fractionNodes.toFixed(4)}</p>
               <p>Training Rewards: {step1Calc.trainingRewards.toFixed(2)}</p>
               <p>Validator Rewards: {step1Calc.validatorRewards.toFixed(2)}</p>

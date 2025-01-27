@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import NodeCard from "./components/NodeCard";
 import ValidatorCard from "./components/ValidatorCard";
 

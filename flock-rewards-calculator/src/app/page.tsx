@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import NodeCard from "./components/NodeCard";
+import ValidatorCard from "./components/ValidatorCard";
 
 /* ------------------------------------------------------------------
   STEP 1: Split R0 between Training Nodes & Validators
@@ -557,164 +558,53 @@ export default function Home() {
             (must be 1)
           </p>
 
-          {/* Validator A */}
-          <div className="border border-gray-100 p-3 rounded mb-2">
-            <h3 className="font-medium mb-2">Validator A</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label className="block">
-                Direct Stake (S<sub>vA</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valAStake}
-                  onChange={(e) =>
-                    setValAStake(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Delegators' Stake (S<sub>dA</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valADelegators}
-                  onChange={(e) =>
-                    setValADelegators(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Performance (F<sub>A</sub>)
-                <input
-                  type="number"
-                  step="0.000001"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valAScore}
-                  onChange={(e) =>
-                    setValAScore(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                σ<sub>ValA</sub> (Reward Ratio = 1 - σ)
-                <input
-                  type="number"
-                  step="0.1"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valASigma}
-                  onChange={(e) =>
-                    setValASigma(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-            </div>
-          </div>
+          <ValidatorCard
+          validatorLabel="A"
+          validatorParams={{
+            stake: valAStake,
+            delegators: valADelegators,
+            score: valAScore,
+            sigma: valASigma,
+          }}
+          setValidatorParams={(updatedFields) => {
+            if (updatedFields.stake !== undefined) setValAStake(updatedFields.stake);
+            if (updatedFields.delegators !== undefined) setValADelegators(updatedFields.delegators);
+            if (updatedFields.score !== undefined) setValAScore(updatedFields.score);
+            if (updatedFields.sigma !== undefined) setValASigma(updatedFields.sigma);
+            }}
+          />
 
-          {/* Validator B */}
-          <div className="border border-gray-100 p-3 rounded mb-2">
-            <h3 className="font-medium mb-2">Validator B</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label className="block">
-                Direct Stake (S<sub>vB</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valBStake}
-                  onChange={(e) =>
-                    setValBStake(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Delegators' Stake (S<sub>dB</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valBDelegators}
-                  onChange={(e) =>
-                    setValBDelegators(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Performance (F<sub>B</sub>)
-                <input
-                  type="number"
-                  step="0.000001"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valBScore}
-                  onChange={(e) =>
-                    setValBScore(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                σ<sub>ValB</sub> (Reward Ratio = 1 - σ)
-                <input
-                  type="number"
-                  step="0.1"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valBSigma}
-                  onChange={(e) =>
-                    setValBSigma(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-            </div>
-          </div>
+          <ValidatorCard
+          validatorLabel="B"
+          validatorParams={{
+            stake: valBStake,
+            delegators: valBDelegators,
+            score: valBScore,
+            sigma: valBSigma,
+          }}
+          setValidatorParams={(updatedFields) => {
+            if (updatedFields.stake !== undefined) setValBStake(updatedFields.stake);
+            if (updatedFields.delegators !== undefined) setValBDelegators(updatedFields.delegators);
+            if (updatedFields.score !== undefined) setValBScore(updatedFields.score);
+            if (updatedFields.sigma !== undefined) setValBSigma(updatedFields.sigma);
+            }}
+          />
 
-          {/* Validator C */}
-          <div className="border border-gray-100 p-3 rounded mb-2">
-            <h3 className="font-medium mb-2">Validator C</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label className="block">
-                Direct Stake (S<sub>vC</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valCStake}
-                  onChange={(e) =>
-                    setValCStake(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Delegators' Stake (S<sub>dC</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valCDelegators}
-                  onChange={(e) =>
-                    setValCDelegators(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Performance (F<sub>C</sub>)
-                <input
-                  type="number"
-                  step="0.000001"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valCScore}
-                  onChange={(e) =>
-                    setValCScore(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                σ<sub>ValC</sub> (Reward Ratio = 1 - σ)
-                <input
-                  type="number"
-                  step="0.1"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={valCSigma}
-                  onChange={(e) =>
-                    setValCSigma(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-            </div>
-          </div>
+          <ValidatorCard
+          validatorLabel="C "
+          validatorParams={{
+            stake: valCStake,
+            delegators: valCDelegators,
+            score: valCScore,
+            sigma: valCSigma,
+          }}
+          setValidatorParams={(updatedFields) => {
+            if (updatedFields.stake !== undefined) setValCStake(updatedFields.stake);
+            if (updatedFields.delegators !== undefined) setValCDelegators(updatedFields.delegators);
+            if (updatedFields.score !== undefined) setValCScore(updatedFields.score);
+            if (updatedFields.sigma !== undefined) setValCSigma(updatedFields.sigma);
+            }}
+          />
 
           {/* Compute Button */}
           <button

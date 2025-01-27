@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import NodeCard from "./components/NodeCard";
 
 /* ------------------------------------------------------------------
   STEP 1: Split R0 between Training Nodes & Validators
@@ -494,164 +495,53 @@ export default function Home() {
             (must be 1)
           </p>
 
-          {/* Node A */}
-          <div className="border border-gray-100 p-3 rounded mb-2">
-            <h3 className="font-medium mb-2">Node A</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label className="block">
-                Direct Stake (t<sub>nA</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeAStake}
-                  onChange={(e) =>
-                    setNodeAStake(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Delegators' Stake (t<sub>dA</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeADelegators}
-                  onChange={(e) =>
-                    setNodeADelegators(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Performance (g<sub>A</sub>)
-                <input
-                  type="number"
-                  step="0.000001"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeAScore}
-                  onChange={(e) =>
-                    setNodeAScore(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                σ<sub>A</sub> (Reward Ratio = 1 - σ)
-                <input
-                  type="number"
-                  step="0.1"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeASigma}
-                  onChange={(e) =>
-                    setNodeASigma(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-            </div>
-          </div>
+          <NodeCard
+          nodeLabel="A"
+          nodeParams={{
+            stake: nodeAStake,
+            delegators: nodeADelegators,
+            score: nodeAScore,
+            sigma: nodeASigma,
+          }}
+          setNodeParams={(updatedFields) => {
+            if (updatedFields.stake !== undefined) setNodeAStake(updatedFields.stake);
+            if (updatedFields.delegators !== undefined) setNodeADelegators(updatedFields.delegators);
+            if (updatedFields.score !== undefined) setNodeAScore(updatedFields.score);
+            if (updatedFields.sigma !== undefined) setNodeASigma(updatedFields.sigma);
+            }}
+          />
 
-          {/* Node B */}
-          <div className="border border-gray-100 p-3 rounded mb-2">
-            <h3 className="font-medium mb-2">Node B</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label className="block">
-                Direct Stake (t<sub>nB</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeBStake}
-                  onChange={(e) =>
-                    setNodeBStake(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Delegators' Stake (t<sub>dB</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeBDelegators}
-                  onChange={(e) =>
-                    setNodeBDelegators(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Performance (g<sub>B</sub>)
-                <input
-                  type="number"
-                  step="0.000001"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeBScore}
-                  onChange={(e) =>
-                    setNodeBScore(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                σ<sub>B</sub> (Reward Ratio = 1 - σ)
-                <input
-                  type="number"
-                  step="0.1"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeBSigma}
-                  onChange={(e) =>
-                    setNodeBSigma(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-            </div>
-          </div>
+          <NodeCard
+          nodeLabel="B"
+          nodeParams={{
+            stake: nodeBStake,
+            delegators: nodeBDelegators,
+            score: nodeBScore,
+            sigma: nodeBSigma,
+          }}
+          setNodeParams={(updatedFields) => {
+            if (updatedFields.stake !== undefined) setNodeBStake(updatedFields.stake);
+            if (updatedFields.delegators !== undefined) setNodeBDelegators(updatedFields.delegators);
+            if (updatedFields.score !== undefined) setNodeBScore(updatedFields.score);
+            if (updatedFields.sigma !== undefined) setNodeBSigma(updatedFields.sigma);
+            }}
+          />
 
-          {/* Node C */}
-          <div className="border border-gray-100 p-3 rounded mb-2">
-            <h3 className="font-medium mb-2">Node C</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label className="block">
-                Direct Stake (t<sub>nC</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeCStake}
-                  onChange={(e) =>
-                    setNodeCStake(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Delegators' Stake (t<sub>dC</sub>)
-                <input
-                  type="number"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeCDelegators}
-                  onChange={(e) =>
-                    setNodeCDelegators(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                Performance (g<sub>C</sub>)
-                <input
-                  type="number"
-                  step="0.000001"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeCScore}
-                  onChange={(e) =>
-                    setNodeCScore(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-              <label className="block">
-                σ<sub>C</sub> (Reward Ratio = 1 - σ)
-                <input
-                  type="number"
-                  step="0.1"
-                  className="appearance-none border px-2 py-1 w-full rounded mt-1"
-                  value={nodeCSigma}
-                  onChange={(e) =>
-                    setNodeCSigma(parseFloat(e.target.value) || 0)
-                  }
-                />
-              </label>
-            </div>
-          </div>
+          <NodeCard
+          nodeLabel="C"
+          nodeParams={{
+            stake: nodeCStake,
+            delegators: nodeCDelegators,
+            score: nodeCScore,
+            sigma: nodeCSigma,
+          }}
+          setNodeParams={(updatedFields) => {
+            if (updatedFields.stake !== undefined) setNodeCStake(updatedFields.stake);
+            if (updatedFields.delegators !== undefined) setNodeCDelegators(updatedFields.delegators);
+            if (updatedFields.score !== undefined) setNodeCScore(updatedFields.score);
+            if (updatedFields.sigma !== undefined) setNodeCSigma(updatedFields.sigma);
+            }}
+          />
 
           {/* VALIDATORS */}
           <h2 className="font-semibold mb-2 mt-4">Validators</h2>

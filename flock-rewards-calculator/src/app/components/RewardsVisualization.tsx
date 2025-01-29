@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, BarChart, XAxis, YAxis, Tooltip, Legend, Bar, Line, ComposedChart } from 'recharts';
+import { LineChart, XAxis, YAxis, Tooltip, Legend, Bar, Line, ComposedChart } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface NodeData {

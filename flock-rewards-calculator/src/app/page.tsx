@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import NodeCard from "./components/NodeCard";
 import ValidatorCard from "./components/ValidatorCard";
-import RewardsVisualization from "./components/XYGraph";
+import RewardsVisualization from "./components/RewardsVisualization";
 
 /* ------------------------------------------------------------------
   STEP 1: Split R0 between Training Nodes & Validators

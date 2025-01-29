@@ -630,41 +630,44 @@ export default function Home() {
 
           {/* Step 1 Calc Steps */}
           {step1Calc && (
-            <div className="bg-gray-50 p-2 mb-3 text-sm rounded">
-              <h3 className="font-medium">Calculation Steps (Step 1)</h3>
-              <p>Node Direct Sum: {step1Calc.nodeDirectSum}</p>
-              <p>Validator Direct Sum: {step1Calc.validatorDirectSum}</p>
-              <p>Note: Direct Sum above means delegated stake is not counted here</p>
-              <p>Fraction for Nodes: {step1Calc.fractionNodes.toFixed(4)}</p>
-              <p>Training Rewards: {step1Calc.trainingRewards.toFixed(2)}</p>
-              <p>Validator Rewards: {step1Calc.validatorRewards.toFixed(2)}</p>
+            <div className="bg-[#2E2E3F] p-4 mb-6 rounded-lg border border-[#444B55] shadow-sm">
+              <h3 className="text-lg font-semibold text-[#42A5F5] mb-3">
+              Calculation Steps (Step 1)
+              </h3>
+              <div className="space-y-2 text-sm">
+                <p>Node Direct Sum: <span className="font-semibold">{step1Calc.nodeDirectSum}</span></p>
+                <p>Validator Direct Sum: <span className="font-semibold">{step1Calc.validatorDirectSum}</span></p>
+                <p className="text-gray-400">Note: Direct Sum above means delegated stake is not counted here</p>
+                <p>Fraction for Nodes: <span className="font-semibold">{step1Calc.fractionNodes.toFixed(4)}</span></p>
+                <p>Training Rewards: <span className="font-semibold text-green-500">{step1Calc.trainingRewards.toFixed(2)}</span></p>
+                <p>Validator Rewards: <span className="font-semibold text-green-500">{step1Calc.validatorRewards.toFixed(2)}</span></p>
+              </div>
             </div>
           )}
 
           {/* Node Distribution Steps */}
           {nodeCalcDetails.length > 0 && (
-            <div className="bg-gray-50 p-2 mb-3 text-sm rounded">
-              <h3 className="font-medium">Node Distribution (Steps 2–3)</h3>
+            <div className="bg-[#2E2E3F] p-4 mb-6 rounded-lg border border-[#444B55] shadow-sm">
+              <h3 className="text-lg font-semibold text-[#42A5F5] mb-3">
+                Node Distribution (Steps 2–3)
+              </h3>
               {nodeCalcDetails.map((nd) => (
-                <div key={nd.index} className="mb-2 border-b border-gray-100 pb-2">
-                  <p className="font-semibold">
-                    Node {["A", "B", "C"][nd.index]}
-                  </p>
-                  <p>Direct Stake: {nd.directStake}</p>
-                  <p>Delegators Stake: {nd.delegatorsStake}</p>
-                  <p>Total Stake: {nd.totalStake}</p>
-                  <p>Performance: {nd.performance.toFixed(6)}</p>
-                  <p>Fraction: {nd.fraction.toFixed(4)}</p>
-                  <p>
-                    Total Reward (before split):{" "}
-                    {nd.totalRewardBeforeSplit.toFixed(2)}
-                  </p>
-                  <p>Node Owner Reward: {nd.nodeOwnerReward.toFixed(2)}</p>
-                  <p>Node Delegators: {nd.nodeDelegatorsReward.toFixed(2)}</p>
-                </div>
-              ))}
-            </div>
-          )}
+              <div key={nd.index} className="mb-4 pb-4 border-b border-[#444B55] last:border-b-0 last:pb-0">
+                <h4 className="text-base font-bold text-white mb-2">Node {["A", "B", "C"][nd.index]}</h4>
+              <div className="space-y-1 text-sm">
+                <p>Direct Stake: <span className="font-semibold">{nd.directStake}</span></p>
+                <p>Delegators Stake: <span className="font-semibold">{nd.delegatorsStake}</span></p>
+                <p>Total Stake: <span className="font-semibold">{nd.totalStake}</span></p>
+                <p>Performance: <span className="font-semibold">{nd.performance.toFixed(6)}</span></p>
+                <p>Fraction: <span className="font-semibold">{nd.fraction.toFixed(4)}</span></p>
+                <p>Total Reward (before split): <span className="font-semibold text-green-500">{nd.totalRewardBeforeSplit.toFixed(2)}</span></p>
+                <p>Node Owner Reward: <span className="font-semibold text-green-500">{nd.nodeOwnerReward.toFixed(2)}</span></p>
+                <p>Node Delegators Reward: <span className="font-semibold text-green-500">{nd.nodeDelegatorsReward.toFixed(2)}</span></p>
+              </div>
+              </div>
+          ))}
+          </div>
+        )}
 
           <hr className="my-2" />
 
@@ -691,28 +694,29 @@ export default function Home() {
 
           {/* Validator Distribution Steps */}
           {valCalcDetails.length > 0 && (
-            <div className="bg-gray-50 p-2 mb-3 text-sm rounded">
-              <h3 className="font-medium">Validator Distribution (Steps 2–3)</h3>
-              {valCalcDetails.map((vd) => (
-                <div key={vd.index} className="mb-2 border-b border-gray-100 pb-2">
-                  <p className="font-semibold">
-                    Validator {["A", "B", "C"][vd.index]}
-                  </p>
-                  <p>Direct Stake: {vd.directStake}</p>
-                  <p>Delegators Stake: {vd.delegatorsStake}</p>
-                  <p>Total Stake: {vd.totalStake}</p>
-                  <p>Performance: {vd.performance.toFixed(6)}</p>
-                  <p>Fraction: {vd.fraction.toFixed(4)}</p>
-                  <p>
-                    Total Reward (before split):{" "}
-                    {vd.totalRewardBeforeSplit.toFixed(2)}
-                  </p>
-                  <p>Validator Owner: {vd.validatorOwnerReward.toFixed(2)}</p>
-                  <p>Validator Delegators: {vd.validatorDelegatorsReward.toFixed(2)}</p>
-                </div>
-              ))}
+          <div className="bg-[#2E2E3F] p-4 mb-6 rounded-lg border border-[#444B55] shadow-sm">
+            <h3 className="text-lg font-semibold text-[#42A5F5] mb-3">
+              Validator Distribution (Steps 2–3)
+            </h3>
+            {valCalcDetails.map((vd) => (
+            <div key={vd.index} className="mb-4 pb-4 border-b border-[#444B55] last:border-b-0 last:pb-0">
+              <h4 className="text-base font-bold text-white mb-2">
+                Validator {["A", "B", "C"][vd.index]}
+              </h4>
+              <div className="space-y-1 text-sm">
+                <p>Direct Stake: <span className="font-semibold">{vd.directStake}</span></p>
+                <p>Delegators Stake: <span className="font-semibold">{vd.delegatorsStake}</span></p>
+                <p>Total Stake: <span className="font-semibold">{vd.totalStake}</span></p>
+                <p>Performance: <span className="font-semibold">{vd.performance.toFixed(6)}</span></p>
+                <p>Fraction: <span className="font-semibold">{vd.fraction.toFixed(4)}</span></p>
+                <p>Total Reward (before split): <span className="font-semibold text-green-500">{vd.totalRewardBeforeSplit.toFixed(2)}</span></p>
+                <p>Validator Owner Reward: <span className="font-semibold text-green-500">{vd.validatorOwnerReward.toFixed(2)}</span></p>
+                <p>Validator Delegators Reward: <span className="font-semibold text-green-500">{vd.validatorDelegatorsReward.toFixed(2)}</span></p>
+              </div>
             </div>
-          )}
+          ))}
+          </div>
+        )}
 
           {/* Final Validator Results */}
           <div className="space-y-4">

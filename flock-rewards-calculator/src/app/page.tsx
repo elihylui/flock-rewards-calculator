@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import NodeCard from "./components/NodeCard";
 import ValidatorCard from "./components/ValidatorCard";
+import RewardsVisualization from "./components/XYGraph";
 
 /* ------------------------------------------------------------------
   STEP 1: Split R0 between Training Nodes & Validators
@@ -420,15 +421,24 @@ export default function Home() {
   const nodeScoreSum = nodeAScore + nodeBScore + nodeCScore;
   const valScoreSum = valAScore + valBScore + valCScore;
 
+  const graphData = [nodeAStake, nodeADelegators, nodeAScore, nodeASigma, R0, nodeAResult,
+                     nodeBStake, nodeBDelegators, nodeBScore, nodeBSigma, R0, nodeBResult,
+                     nodeCStake, nodeCDelegators, nodeCScore, nodeCSigma, R0, nodeCResult,
+                     valAStake, valADelegators, valAScore, valASigma, R0, valAResult,
+                     valBStake, valBDelegators, valBScore, valBSigma, R0, valBResult,
+                     valCStake, valCDelegators, valCScore, valCSigma, R0, valCResult];
+
   return (
     <div className="min-h-screen bg-[#1E1E2F] text-[#E0E0E0] p-6 sm:p-10">
-      {/* <div className="flex flex-col lg:flex-row gap-8"> */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Left Column: 2/3 width */}
         <div className="col-span-2 bg-[#282C34] shadow-lg border border-[#444B55] rounded-lg p-6">
           <div className="flex items-center gap-4 mb-6">
             <h1 className="text-2xl font-extrabold text-white">AI Arena Rewards Calculator</h1>
           </div>
+
+          {/* Visualisation Graph */}
+          <RewardsVisualization graphData={graphData} />
 
           {/* System Params */}
           <h2 className="text-lg font-semibold text-[#A5A5A5] mb-4">System Parameters</h2>
